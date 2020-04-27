@@ -29,4 +29,11 @@ public class OrderFeignController {
     public CommonResult create(@RequestBody Payment payment){
         return paymentFeignService.create(payment);
     }
+
+
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout(){
+        //openFeign-ribbon,客户端默认等待一秒
+        return paymentFeignService.paymentFeignTimeout();
+    }
 }
